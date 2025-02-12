@@ -1,0 +1,9 @@
+<h1>Book Listing</h1>
+<ul>
+  <% @books.each do |book| %>
+    <li>
+      <%= link_to book.title, book_path(book) %> - <%= book.author %>
+      (<%= book.borrowings.exists?(returned: false) ? "Borrowed" : "Available" %>)
+    </li>
+  <% end %>
+</ul>
