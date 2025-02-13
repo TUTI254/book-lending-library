@@ -1,0 +1,27 @@
+<div class="container">
+  <span>
+    <%= link_to "Back", books_path, class: "btn btn-secondary" %>
+  </span>
+  <h1>les grands</h1>
+
+  <div class="book-item">
+    <%= image_tag @book.cover, alt: @book.title, class: "book-cover" %>
+    <div class="book-details">
+      <p>Title : <%= @book.title %></p>
+      <p>Author: <%= @book.author %></p>
+      <p>ISBN: <%= @book.isbn %></p>
+    </div>
+    <% if @borrowings.any? %>
+      <h2>Borrowing Details</h2>
+      <% @borrowings.each do |borrowing| %>
+        <p>Borrowed by: <%= borrowing.user.email_address %></p>
+        <p>Due by: <%= borrowing.due_date %></p>
+      <% end %>
+    <% else %>
+      <%= form_with url: borrowings_path, method: :post, local: true do |form| %>
+        <%= hidden_field_tag :book_id, @book.id %>
+        <%= form.submit "Borrow this Book", class: "btn btn-success" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

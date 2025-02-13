@@ -1,11 +1,17 @@
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
-<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+<%= tag.div(flash[:alert], style: "color: red; font-weight: bold; margin-bottom: 10px;") if flash[:alert] %>
+<%= tag.div(flash[:notice], style: "color: green; font-weight: bold; margin-bottom: 10px;") if flash[:notice] %>
 
-<%= form_with url: session_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
-  <%= form.submit "Sign in" %>
-<% end %>
-<br>
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
+  <h1 style="font-family: 'Cinzel', serif; color: #2c2c2c; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);">Welcome to Les Grands</h1>
+  <h2 style="font-family: 'Libre Baskerville', serif; color: #3e3e3e; margin-bottom: 20px;">Please Login</h2>
 
-<%= link_to "Forgot password?", new_password_path %>
+  <%= form_with url: session_path, method: :post, style: "width: 100%; max-width: 400px; padding: 20px; background: #fff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);" do |form| %>
+    <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address], 
+        style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;" %><br>
+    
+    <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72, 
+        style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;" %><br>
+    
+    <%= form.submit "Sign in", style: "width: 100%; background: #bfa27e; color: #fff; border: none; padding: 10px 20px; text-transform: uppercase; border-radius: 3px; cursor: pointer; transition: background 0.3s ease;" %>
+  <% end %>
+</div>

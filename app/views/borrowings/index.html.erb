@@ -1,0 +1,26 @@
+<div class="container">
+  <span>
+    <%= link_to "Back", books_path, class: "btn btn-secondary" %>
+  </span>
+  <h1>les grands</h1>
+  <h3>My Books</h3>
+
+  <% if @borrowings.any? %>
+    <div class="book-grid">
+      <% @borrowings.each do |borrowing| %>
+        <div class="book-item">
+          <%= image_tag borrowing.book.cover, alt: borrowing.book.title, class: "book-cover" %>
+          <h2><%= borrowing.book.title %></h2>
+          <p><em><%= borrowing.book.author %></em></p>
+          <p><em><%= borrowing.book.isbn %></em></p>
+          <p>Due by: <%= borrowing.due_date %></p>
+          <%= form_with url: return_borrowing_path(borrowing), method: :patch, local: true do |form| %>
+            <%= form.submit "Return Book", class: "btn btn-warning" %>
+          <% end %>          
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>You have not borrowed any books.</p>
+  <% end %>
+</div>
