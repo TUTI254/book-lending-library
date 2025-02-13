@@ -1,16 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate
-
-  helper_method :authenticated?, :current_user
+  helper_method :current_user # Make current_user available in views
 
   private
 
   def authenticate
-    redirect_to new_session_path, alert: "You must log in first" unless authenticated?
-  end
-
-  def authenticated?
-    session[:user_id].present?
+    redirect_to new_session_path unless current_user
   end
 
   def current_user

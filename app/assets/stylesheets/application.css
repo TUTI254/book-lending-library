@@ -1,10 +1,190 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap');
+
+body {
+  background-color: #fdf6e3;
+  color: #3e3e3e;
+  font-family: 'Libre Baskerville', serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+nav {
+  background-color: #d6cfc7;
+  border-bottom: 2px solid #a29f9c;
+  padding: 15px;
+  text-align: center;
+}
+
+nav a, nav button {
+  color: #5a4d41;
+  font-weight: bold;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+nav a:hover, nav button:hover {
+  text-decoration: underline;
+}
+
+h1, h2 {
+  font-family: 'Cinzel', serif;
+  color: #2c2c2c;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+h3 {
+  font-family: 'Cinzel', serif;
+  color: #2c2c2c;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 20px;
+} 
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.btn {
+  font-family: 'Libre Baskerville', serif;
+  background: #bfa27e;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 5px 0;
+  transition: background 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #8a7d72;
+}
+
+.btn-secondary {
+  background-color: #a89c94;
+}
+
+.btn-success {
+  background-color: #7d9d82;
+}
+
+.btn-warning {
+  background-color: #d6a57c;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+form {
+  margin-top: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+a {
+  color: #5a4d41;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+blockquote {
+  font-style: italic;
+  color: #6d6d6d;
+  border-left: 4px solid #bfa27e;
+  margin: 20px;
+  padding-left: 15px;
+}
+
+/* --- Grid Styles for Book Listing --- */
+
+.book-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+}
+
+@media (min-width: 768px) {
+  .book-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on medium/large screens */
+  }
+}
+
+.book-item {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.book-cover {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.book-item h2 {
+  font-family: 'Cinzel', serif;
+  margin: 10px 0;
+}
+
+.book-item p {
+  font-family: 'Libre Baskerville', serif;
+}
+/* Book Details Styling for the Show View */
+.book-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  height: 150px;  
+  margin: 20px 0;
+}
+
+.book-details p {
+  font-family: 'Cinzel', serif;  
+  font-weight: 700;              
+  margin: 0;
+}

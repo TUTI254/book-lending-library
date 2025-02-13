@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  get "books/index"
-  get "books/show"
-  resource :session
-  resources :passwords, param: :token
   resources :books, only: [ :index, :show ]
 
-  root to: "books#index"
+  resources :borrowings, only: [ :index, :create ] do
+    member do
+      patch :return
+    end
+  end
+
+  # Authentication routes
+  delete "/logout", to: "sessions#destroy", as: :logout
+  resource :session, only: [ :new, :create ]
+  resource :passwords, only: [ :new, :create, :edit, :update ]
+
+  root "books#index"
 end
