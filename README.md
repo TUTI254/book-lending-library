@@ -46,7 +46,7 @@ A simple Ruby on Rails 8 application that allows registered users to browse avai
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/book-lending-library.git
+   git clone https://github.com/TUTI254/book-lending-library.git
    cd book-lending-library
 
 2. **## Install dependencies:**
