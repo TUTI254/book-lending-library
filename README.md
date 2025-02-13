@@ -10,6 +10,7 @@ A simple Ruby on Rails 8 application that allows registered users to browse avai
   - [Technologies Used](#technologies-used)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+  - [Screenshots Demo](#screenshots-demo)
 
 ## Features
 
@@ -78,3 +79,10 @@ A simple Ruby on Rails 8 application that allows registered users to browse avai
    ```
 
    
+## Screenshots Demo
+
+![Book List View](app/assets/images/books-list.png)
+![Book Details View](app/assets/images/books-detail.png)
+![Login View](app/assets/images/login.png)
+![Borrowed Books View](app/assets/images/borrowings.png)
+
